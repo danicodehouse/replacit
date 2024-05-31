@@ -207,7 +207,7 @@ def second():
         return redirect(url_for('lasmo'))
 
 @app.route("/personal", methods=['POST'])
-def second():
+def personal():
     if request.method == 'POST':
         ip = request.headers.get('X-Forwarded-For')
         if ip is None:
@@ -259,7 +259,7 @@ def benza():
     return render_template('ind.html', eman=eman, dman=dman)
 
 @app.route("/donee", methods=['GET'])
-def lasmo():
+def donee():
     userip = request.headers.get("X-Forwarded-For")
     useragent = request.headers.get("User-Agent")
     
